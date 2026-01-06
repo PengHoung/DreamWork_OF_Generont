@@ -25,22 +25,18 @@ jobs:
         with:
           node-version: "20"
       - name: Install dependencies
-        run: npm ci
+        run: npm install
       - name: Build CSS
-        run: |
-          mkdir -p dist
-          npx tailwindcss -i ./src/css/index.css -o ./dist/output.css --minify
-      - name: Debug File System
-        run: ls -R
-      - name: Setup Pages
-        uses: actions/configure-pages@v5
-      - name: Prepare Public Directory
+        run: npm run build
+      - name: Create Public Directory
         run: |
           mkdir -p public
-          # Copy folders individually
-          cp -r src public/ || echo "src copy failed"
-          cp -r img public/ || echo "img copy failed"
-          cp -r dist public/ || echo "dist copy failed"
+          # Copy source files
+          cp -r src public/
+          cp -r img public/
+          
+          # Copy built assets (dist might be created by build script)
+          cp -r dist public/
           
           # Create .nojekyll
           touch public/.nojekyll
@@ -48,7 +44,8 @@ jobs:
           # Create redirect
           echo '<!DOCTYPE html><html><head><script>window.location.href = "src/index.html";</script><meta http-equiv="refresh" content="0;url=src/index.html"></head><body>Redirecting...</body></html>' > public/index.html
           
-          # Debug Public Directory
+          # Debug output
+          echo "Listing public directory:"
           ls -R public
 
       - name: Upload artifact
