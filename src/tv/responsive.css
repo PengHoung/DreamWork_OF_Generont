@@ -1,8 +1,9 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
+
 .highlight {
     display: flex;
     flex-direction: row;
@@ -12,9 +13,10 @@
     width: 100%;
     height: 432px;
 }
+
 .highlight .box1 {
     background-color: gray;
-    /* background-image: url(/TV/img1/box1.jpg); */
+    /* background-image: url(./img1/box1.jpg); */
     background-repeat: no-repeat;
     background-size: cover;
     width: 50%;
@@ -29,16 +31,19 @@
 
     line-height: 2;
 }
+
 .highlight .box1 h1 {
-    font-family:Arial, Helvetica, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 1.5rem;
     font-weight: bold;
 }
+
 .highlight .box1 h2 {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 1rem;
     font-weight: lighter;
 }
+
 .highlight .box1 .button1 {
     border: 1px solid white;
     margin-top: 10px;
@@ -53,7 +58,8 @@
 
     transition: 0.5s;
 }
-.highlight .box1 .button1:hover{
+
+.highlight .box1 .button1:hover {
     background-color: white;
     color: black;
 }
@@ -61,7 +67,7 @@
 
 .highlight .box2 {
     background-color: gray;
-    /* background-image: url(/TV/img1/box1.jpg); */
+    /* background-image: url(./img1/box1.jpg); */
     background-repeat: no-repeat;
     background-size: cover;
     width: 50%;
@@ -76,16 +82,19 @@
 
     line-height: 2;
 }
+
 .highlight .box2 h1 {
-    font-family:Arial, Helvetica, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 1.5rem;
     font-weight: bold;
 }
+
 .highlight .box2 h2 {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 1rem;
     font-weight: lighter;
 }
+
 .highlight .box2 .button2 {
     border: 1px solid white;
     margin-top: 10px;
@@ -100,10 +109,12 @@
 
     transition: 0.5s;
 }
+
 .highlight .box2 .button2:hover {
     background-color: white;
     color: black;
 }
+
 /* ===============================
    LIBRARY CONTAINER / GRID
    =============================== */
@@ -118,31 +129,37 @@
     width: 100%;
     margin: 0 auto;
 }
-.library-navbar{
+
+.library-navbar {
     width: 100%;
     display: flex;
     justify-content: space-between;
     padding-top: 40px;
     padding-bottom: 10px;
 }
-.library-navbar h1{
+
+.library-navbar h1 {
     font-size: 23px;
     font-weight: bold;
     color: #052c6f;
 }
-.library-navbar .search-box{
+
+.library-navbar .search-box {
     width: 250px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 10px 0px 5px 0px;
 }
-.library-navbar .search-box input{
-   border-bottom: 1px solid black;
+
+.library-navbar .search-box input {
+    border-bottom: 1px solid black;
 }
+
 .library-group-card ul {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* 4 columns */
+    grid-template-columns: repeat(4, 1fr);
+    /* 4 columns */
     gap: 25px;
     list-style: none;
 }
@@ -165,7 +182,7 @@
     left: 0;
     width: 100%;
     padding: 15px;
-    background: linear-gradient(transparent, rgba(0,0,0,0.85));
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.85));
     color: white;
     font-size: 15px;
     font-weight: 600;
@@ -195,7 +212,8 @@
     margin: 0 auto;
     padding: 80px 20px 40px;
     display: flex;
-    flex-wrap: wrap;      /* responsive for smaller screens */
+    flex-wrap: wrap;
+    /* responsive for smaller screens */
     justify-content: center;
     align-items: center;
     gap: 60px;
@@ -268,11 +286,13 @@
         grid-template-columns: repeat(3, 1fr);
     }
 }
+
 @media screen and (max-width: 600px) {
     .library-group-card ul {
         grid-template-columns: repeat(2, 1fr);
     }
+
     .library-container {
-    padding: 10px;
-}
+        padding: 10px;
+    }
 }
