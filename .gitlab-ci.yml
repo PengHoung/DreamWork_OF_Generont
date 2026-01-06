@@ -1,14 +1,12 @@
-image: node:latest
-
 pages:
   stage: deploy
   script:
     - npm install
     - npx tailwindcss -i ./src/css/index.css -o ./dist/output.css --minify
     - mkdir public
-    - cp -r src dist img public/
-    # Create a redirect file at the root to point to src/index.html
-    - echo '<!DOCTYPE html><html><head><script>window.location.href = "src/index.html";</script><meta http-equiv="refresh" content="0;url=src/index.html"></head><body>Redirecting...</body></html>' > public/index.html
+    # This line moves your files so index.html is at the root
+    - cp src/index.html public/
+    - cp -r dist img public/
   artifacts:
     paths:
       - public
