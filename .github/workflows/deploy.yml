@@ -27,14 +27,21 @@ jobs:
       - name: Install dependencies
         run: npm install
       - name: Build CSS
-        run: npx tailwindcss -i ./src/css/index.css -o ./dist/output.css --minify
+        run: |
+          mkdir -p dist
+          npx tailwindcss -i ./src/css/index.css -o ./dist/output.css --minify
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Prepare Public Directory
         run: |
-          mkdir public
-          cp -r src dist img public/
-          # Create redirect for GitHub Pages (handling SPA/redirect)
+          mkdir -p public
+          # Copy folders individually to debug/prevent glob issues
+          cp -r src public/
+          cp -r img public/
+          cp -r dist public/
+          # Create .nojekyll to ensure files starting with _ are not ignored
+          touch public/.nojekyll
+          # Create redirect for GitHub Pages
           echo '<!DOCTYPE html><html><head><script>window.location.href = "src/index.html";</script><meta http-equiv="refresh" content="0;url=src/index.html"></head><body>Redirecting...</body></html>' > public/index.html
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
