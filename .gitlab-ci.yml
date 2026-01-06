@@ -1,0 +1,14 @@
+pages:
+  stage: deploy
+  script:
+    - npm install
+    - npx tailwindcss -i ./src/css/index.css -o ./dist/output.css --minify
+    - mkdir -p public  # Use -p to ensure it doesn't fail if the folder exists
+    - cp src/index.html public/
+    - cp -r dist public/
+    - cp -r img public/
+  artifacts:
+    paths:
+      - public
+  only:
+    - develop
